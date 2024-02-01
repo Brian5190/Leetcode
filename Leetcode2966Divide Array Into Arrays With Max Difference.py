@@ -20,3 +20,17 @@ class Solution:
                     return []
             
         return res
+#New Sol
+class Solution:
+    def divideArray(self, nums: List[int], k: int) -> List[List[int]]:
+        nums = sorted(nums)
+        l = []
+        temp = []
+        for i in range(len(nums)):
+            temp.append(nums[i])
+            if temp[-1] - temp[0] > k:
+                return []
+            if len(temp) == 3:
+                l.append(temp)
+                temp = []
+        return l
